@@ -31,11 +31,10 @@
           <li class="active" class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Challenges <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li class="active"><a href="/challenges/css-game">CSS Game</a></li>
+              <li><a href="/challenges/css-game">CSS Game</a></li>
               <li><a href="/challenges/locators-css">CSS Locators</a></li>
               <li><a href="/challenges/querying">Querying</a></li>
-              
-              <li><a href="/challenges/actions">Actions</a></li>
+              <li class="active"><a href="/challenges/actions">Actions</a></li>
               <li><a href="/challenges/window">Window</a></li>
               <li><a href="/challenges/viewport">Viewport</a></li>
               <li><a href="/challenges/location">Location</a></li>
@@ -56,8 +55,6 @@
               </li>
             </ul>
           </li>
-          <li><a href="/utilities">Utilities</a></li>
-          <li><a href="/cypress-api">Cypress API</a></li>
         </ul>
         
       </div>
@@ -67,8 +64,7 @@
   <div class="banner">
     <div class="container">
       <h1>Actions</h1>
-      <p>Examples of actions being performed on DOM elements in Cypress, for a full reference of commands, go to <a href="https://on.cypress.io/api" target="_blank">docs.cypress.io</a>
-      </p>
+      <p>Using an UI automation framework, resolve the following challenges of actions being performed on DOM elements</p>
     </div>
   </div>
   <div class="container content-container">
@@ -76,30 +72,26 @@
       <div class="row">
 
         <div class="col-xs-7">
-          <h4 id="type"><a href="https://on.cypress.io/type">.type()</a></h4>
-          <p>To type into a DOM element, use the <a href="https://on.cypress.io/type"><code>.type()</code></a> command.</p>
-          <pre><code class="javascript">cy.get('.action-email')
-  .type('fake@email.com').should('have.value', 'fake@email.com')
+          <h4 id="type">Exercise 1</h4>
+          <h5>Typing and sending keys:</h5>
+          <ul>
+            <li>
+              Type <code>fake@email.com</code> inside the email input. Then validate that: 
+              <pre>Assert that the value of the input equals to "fake@email.com"</pre>
+            </li>
+            <li>
+              Fill the email input with <code>fake@email.com</code> and send the keyboard keys: 
+              <code>CTRL + A (Win) or COMMAND + A (Mac)</code> to select all and then <code>DELETE</code>.
+              Validate that:
+              <pre>Assert that the input value is empty after the delete key is sent</pre>
+            </li>
+            <li>
+              Given the disabled text area, find a way to force typing the words 
+              <code>Text typed inside disabled textarea</code> into it. Validate that:
+              <pre>Assert that the text area contains "Text typed inside disabled textarea"</pre>
+            </li>
+          </ul>
 
-  // .type() with special character sequences
-  .type('{leftarrow}{rightarrow}{uparrow}{downarrow}')
-  .type('{del}{selectall}{backspace}')
-
-  // .type() with key modifiers
-  .type('{alt}{option}') //these are equivalent
-  .type('{ctrl}{control}') //these are equivalent
-  .type('{meta}{command}{cmd}') //these are equivalent
-  .type('{shift}')
-
-  // Delay each keypress by 0.1 sec
-  .type('slow.typing@email.com', { delay: 100 })
-  .should('have.value', 'slow.typing@email.com')
-
-cy.get('.action-disabled')
-  // Ignore error checking prior to type
-  // like whether the input is visible or disabled
-  .type('disabled error checking', { force: true })
-  .should('have.value', 'disabled error checking')</code></pre>
         </div>
         <div class="col-xs-5">
           <div class="well">
@@ -119,11 +111,15 @@ cy.get('.action-disabled')
         <div class="col-xs-12"><hr></div>
 
         <div class="col-xs-7">
-          <h4 id="focus"><a href="https://on.cypress.io/focus">.focus()</a></h4>
-          <p>To focus on a DOM element, use the <a href="https://on.cypress.io/focus"><code>.focus()</code></a> command.</p>
-          <pre><code class="javascript">cy.get('.action-focus').focus()
-  .should('have.class', 'focus')
-  .prev().should('have.attr', 'style', 'color: orange;')</code></pre>
+          <h4 id="focus">Exercise 2</h4>
+          <h5>Part 1: Focus</h5>
+          <ul>
+            <li>
+              Given the password input, set the cursor focus on it and validate that:
+              <pre>The label should turn into orange color</pre>
+              <pre>And the input should show an orange border</pre>
+            </li>
+          </ul>
         </div>
         <div class="col-xs-5">
           <div class="well">
@@ -136,14 +132,17 @@ cy.get('.action-disabled')
           </div>
         </div>
 
-        <div class="col-xs-12"><hr></div>
-
         <div class="col-xs-7">
-          <h4 id="blur"><a href="https://on.cypress.io/blur">.blur()</a></h4>
-          <p>To blur on a DOM element, use the <a href="https://on.cypress.io/blur"><code>.blur()</code></a> command.</p>
-          <pre><code class="javascript">cy.get('.action-blur').type('About to blur').blur()
-  .should('have.class', 'error')
-  .prev().should('have.attr', 'style', 'color: red;')</code></pre>
+          <h5>Part 2: Blur</h5>
+          <ul>
+            <li>
+              Given the <code>Full Name</code> input, focust on it and then loose that focus (blur).
+              Then validate that:
+              <pre>The label should turn into red color</pre>
+              <pre>And the input should show a red border</pre>
+            </li>
+          </ul>
+          
         </div>
         <div class="col-xs-5">
           <div class="well">
