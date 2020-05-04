@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="UI Automation Playground | Cypress Example" />
+    <meta name="author" content="Cypress.io" />
+    <meta name="copyright" content="Cypress.io, Inc" />
+
+    <title>UI Automation Playground</title>
+
+    <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/vendor/fira.css" />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle collapsed"
+            data-toggle="collapse"
+            data-target="#navbar"
+          >
+            <span class="icon-bar"></span> <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">UI Automation Playground</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active" class="dropdown">
+              <a
+                href="#"
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+                role="button"
+                >Challenges <span class="caret"></span
+              ></a>
+              <ul class="dropdown-menu">
+                <li><a href="/challenges/css-game">CSS Game</a></li>
+                <li><a href="/challenges/locators-css">CSS Locators</a></li>
+                <li class="active"><a href="/challenges/querying">Querying</a></li>
+                
+                <li><a href="/challenges/actions">Actions</a></li>
+                <li><a href="/challenges/window">Window</a></li>
+                <li><a href="/challenges/viewport">Viewport</a></li>
+                <li><a href="/challenges/location">Location</a></li>
+                <li><a href="/challenges/navigation">Navigation</a></li>
+                <li><a href="/challenges/assertions">Assertions</a></li>
+                <li><a href="/challenges/misc">Misc</a></li>
+                <li><a href="/challenges/connectors">Connectors</a></li>
+                <li><a href="/challenges/aliasing">Aliasing</a></li>
+                <li><a href="/challenges/waiting">Waiting</a></li>
+                <li>
+                  <a href="/challenges/network-requests">Network Requests</a>
+                </li>
+                <li><a href="/challenges/files">Files</a></li>
+                <li><a href="/challenges/local-storage">Local Storage</a></li>
+                <li><a href="/challenges/cookies">Cookies</a></li>
+                <li>
+                  <a href="/challenges/spies-stubs-clocks">Spies, Stubs &amp; Clocks</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="/utilities">Utilities</a></li>
+            <li><a href="/cypress-api">Cypress API</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="banner">
+      <div class="container">
+        <h1>Querying</h1>
+        <p>
+          Now that you learned how to search for elements using CSS locators, it is time to step up the game.
+        </p>
+        <p>
+          To resolve the following challenges you must use an automation framework and will need to include assertions in order to suffice each challenge.
+        </p>
+      </div>
+    </div>
+    <div class="container content-container">
+      <div id="querying">
+        <div class="row">
+          <div class="col-xs-7">
+            <h4>Exercise 1</h4>
+            <h5>Part 1</h5>
+            <ul>
+              <li>
+                Find the first button <b>by ID</b>. Validate that:
+                <pre>Validate that it is visible and contains the text: "Button 1"</pre>
+              </li>
+              <li>
+                Find both buttons <b>by class</b>. <pre>Validate that they are visible</pre>
+              </li>
+              <li>
+                Find the second button. Validate that:
+                <pre>It should be visible and contain the text: "Button 2"</pre>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-xs-5">
+            <div class="well">
+              <h5>Part 1</h5>
+              <button id="query-btn" class="query-btn btn btn-primary">
+                Button 1
+              </button>
+              <button class="query-btn btn btn-primary">
+                Button 2
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-7">            
+            <h5>Part 2</h5>
+            <ul>
+              <li>
+                Find the given div by attribute <code>data-test="test-example"</code>. Validate that:
+                <pre>The "<b>class</b>" attribute should contain the value "<b>example</b>"</pre>
+                <pre>The css property "<b>position</b>" should be equal to "<b>static</b>"</pre> 
+              </li>
+
+            </ul>
+          </div>
+
+          <div class="col-xs-5">
+            <div class="well well-1-line">
+              <h5>Part 2</h5>
+              <div data-test="test-example" class="example">
+                Div with <code>data-test</code>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-xs-12"><hr /></div>
+
+        <div class="row">
+          <div class="col-xs-7">
+            <h4>Exercise 2</h4>
+
+            <ul>
+              <li>
+                Find the <code>li</code> element that that contains text that matches the regex <code>/[oea-z]+\sap\w{3}s/</code>. Validate that:
+                <pre>Validate that the <b>li</b> with the text <b>more apples</b> matches the regex</pre>
+              </li>
+              <li>
+                Using an <b>xpath</b> function find the element that contains text <code>bananas</code>. Validate that:
+                <pre>The element found should have the class <b>third</b></pre>
+                <pre><b>NOTE:</b> Don't find the element by class or its index, instead use a funcion</pre>
+              </li>
+              <li>
+                Given this locator <code>div.well .query-list + div.query-button button</code>, simplify it and find the element. Validate that:
+                <pre>The locator has been simplified and the button can still be found</pre>
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="col-xs-5">
+            <div class="well">
+              <ul class="query-list">
+                <li class="first">apples</li>
+                <li class="second">oranges</li>
+                <li class="third">bananas</li>
+                <li class="fourth">more apples</li>
+              </ul>
+              <div class="query-button">
+                <button class="btn btn-primary"><span>Save Form</span></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12"><hr /></div>
+
+          <div class="col-xs-7">
+            <h4>Exercise 3</h4>
+
+            <ul>
+              <li>
+                Using a CSS pseudo class selector, find the <b>first</b> <code>input</code> element of its parent <code>.query-form</code>. Validate that:
+                <pre>The element found has the placeholder <b>Email</b></pre>
+              </li>
+              <li>
+                Using a CSS pseudo class selector, find the <b>last</b> <code>input</code> element of its parent <code>.query-form</code>. Validate that:
+                <pre>The element found has the placeholder <b>Password</b></pre>
+              </li>
+            </ul>
+            
+          </div>
+          <div class="col-xs-5">
+            <div class="well">
+              <input
+                type="text"
+                id="inputName"
+                class="form-control"
+                placeholder="Name"
+              />
+              <h6>Form</h6>
+              <form class="query-form">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Email"
+                />
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Password"
+                />
+              </form>
+            </div>
+          </div>
+
+          <div class="col-xs-12"><hr /></div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-7">
+            <h4>Best Practices: Locating elements</h4>
+            <p>
+              Prefer dedicated <code>data-test</code> attributes to CSS class names and element IDs.
+              See detailed discussion at Cypress documentation <a href="https://on.cypress.io/best-practices#Selecting-Elements" target="_blank">Best Practices: Selecting elements</a>
+            </p>
+            <p>
+              The following examples are based on the submit button seen in the right side
+            </p>
+            <pre><code>
+  # Worst - too generic, no context
+  driver.find_element_by_css_selector("button")
+
+  # Bad. Coupled to styling. Highly subject to change.
+  driver.find_element_by_css_selector(".btn.btn-large")
+
+  # Average. Coupled to the `name` attribute which has HTML semantics.
+  driver.find_element_by_css_selector("[name=submission]")
+
+  # Better. But still coupled to styling or JS event listeners.
+  driver.find_element_by_css_selector("#main")
+
+  # Slightly better. Uses an ID but also ensures the element
+  # has an ARIA role attribute
+  driver.find_element_by_css_selector("#main[role=button]")
+
+  # Much better. But still coupled to text content that may change.
+  driver.find_element_by_css_selector("Submit")
+
+  # Best. Insulated from all changes.
+  driver.find_element_by_css_selector("[data-test=submit]")</code></pre>
+          </div>
+
+          <div class="col-xs-5">
+            <div class="well" data-cy="best-practices-selecting-elements">
+              <button id="main" class="btn btn-large" name="submission" role="button" data-test="submit">Submit</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="/assets/js/vendor/jquery-1.12.0.min.js"></script>
+    <script src="/assets/js/vendor/bootstrap.min.js"></script>
+    <script src="/assets/js/vendor/highlight.pack.js"></script>
+    <script src="/assets/js/scripts.js"></script>
+  </body>
+</html>

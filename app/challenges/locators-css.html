@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="UI Automation Playground | Cypress Example" />
+  <meta name="author" content="Cypress.io" />
+  <meta name="copyright" content="Cypress.io, Inc" />
+
+  <title>UI Automation Playground - CSS Locators</title>
+
+  <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="/assets/css/vendor/bootstrap.min.css" />
+  <link rel="stylesheet" href="/assets/css/vendor/fira.css" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+          <span class="icon-bar"></span> <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">UI Automation Playground</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Challenges <span
+                class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/challenges/css-game">CSS Game</a></li>
+                  <li class="active"><a href="/challenges/locators-css">CSS Locators</a></li>
+                  <li><a href="/challenges/querying">Querying</a></li>
+                  
+                  <li><a href="/challenges/actions">Actions</a></li>
+                  <li><a href="/challenges/window">Window</a></li>
+                  <li><a href="/challenges/viewport">Viewport</a></li>
+                  <li><a href="/challenges/location">Location</a></li>
+                  <li><a href="/challenges/navigation">Navigation</a></li>
+                  <li><a href="/challenges/assertions">Assertions</a></li>
+                  <li><a href="/challenges/misc">Misc</a></li>
+                  <li><a href="/challenges/connectors">Connectors</a></li>
+                  <li><a href="/challenges/aliasing">Aliasing</a></li>
+                  <li><a href="/challenges/waiting">Waiting</a></li>
+                  <li>
+                    <a href="/challenges/network-requests">Network Requests</a>
+                  </li>
+                  <li><a href="/challenges/files">Files</a></li>
+                  <li><a href="/challenges/local-storage">Local Storage</a></li>
+                  <li><a href="/challenges/cookies">Cookies</a></li>
+                  <li>
+                    <a href="/challenges/spies-stubs-clocks">Spies, Stubs &amp; Clocks</a>
+                  </li>
+                </ul>
+          </li>
+          <li><a href="/utilities">Utilities</a></li>
+          <li><a href="/cypress-api">Cypress API</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="banner">
+    <div class="container" style="padding: 20px;">
+      <h1>CSS Locators</h1>
+      <p>
+        This is just an additional set of CSS selector challenges, for you to strengthen even more your skills.
+        There is no need to resolve these from a testing framework.
+      </p>
+      <p>
+        You don't know how to test your selectors within your browser? try out:
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=du2Jnm-TzJc" target="_blank">Finding Xpath and CSS in Chrome Developer Tools</a></li>
+          <li><a href="https://chrome.google.com/webstore/detail/css-and-xpath-checker/aoinfihhckpkkcpholfhmkeplbhddipe" target="_blank">Chrome Plugin: CSS and XPath checker</a></li>
+        </ul>
+      </p>
+      <p>
+        <b>Recommended training materials: </b><br/>
+        <a href="https://testautomationu.applitools.com/web-element-locator-strategies/" target="_blank">Web Element
+          Locator Strategies.</a> You can also search on google for <code>css selectors reference</code> and you will find plenty learning
+          materials.
+      </p>
+    </div>
+  </div>
+  <div class="container-fluid content-container" style="padding: 20px;">
+    <div id="css-locators">
+      <div class="row">
+        <div class="col-xs-6">
+          <h4>Exercises</h4>
+          <p>
+            Given the HTML in the right, resolve the following challenges
+          </p>
+
+          <ul>
+            <li>
+              <h5>Part 1: Basic selectors</h5>
+            </li>
+            <ol>
+              <li>Select all elements with class="intro"</li>
+              <li>Select the element with id="Lastname"</li>
+              <li>Select all elements with class="intro", and the element with id="Lastname" (with one single selector).
+              </li>
+              <li>Select all &lt;h1&gt; elements.</li>
+              <li>Select all &lt;h1&gt; elements and all &lt;p&gt; elements (with one single selector).</li>
+              <li>Select all &lt;p&gt; elements that are inside a &lt;div&gt; element.</li>
+              <li>Select all &lt;p&gt; elements where the parent is a &lt;div&gt; element.</li>
+              <li>Select the &lt;p&gt; element that is next to a &lt;ul&gt; element.</li>
+              <li>Select all &lt;table&gt; elements that are siblings of a &lt;ul&gt; element.</li>
+              <li>Select all elements.</li>
+              <li>Select all &lt;p&gt; elements with class="myquote".</li>
+            </ol>
+
+            <li>
+              <h5>Part 2: Attribute selectors</h5>
+            </li>
+            <ol>
+              <li>Select all elements with an id attribute.</li>
+              <li>Select all elements with an id attribute value equal to "my-Address"</li>
+              <li>Select all elements with an id attribute value ending with "ess"</li>
+              <li>Select all elements with an id attribute value equal to "my" or starting with "my" followed by a
+                hyphen (-)</li>
+              <li>Select all elements with an id attribute value starting with the letter "L"</li>
+              <li>Select all elements with a title attribute value containing the word "beautiful"</li>
+              <li>Select all elements with an id attribute value containing the string "s"</li>
+              <li>Select all &lt;p&gt; elements with a lang attribute value starting with "it"</li>
+            </ol>
+
+            <li>
+              <h5>Part 3: Pseudo classes for inputs</h5>
+            </li>
+            <ol>
+              <li>Select all checked form elements.</li>
+              <li>Select all disabled form elements.</li>
+              <li>Select all enabled form elements.</li>
+              <li>Select the input element that currently has focus (reload you browser in case that autofocus is not currently active).</li>
+              <li>Select all &lt;input&gt; elements where the value is invalid according to their limitations.</p></li>
+              <li>Select all &lt;input&gt; elements where the value is valid according to their limitations.</p></li>
+            </ol>
+
+            <li>
+              <h5>Part 4: Children selectors</h5>
+            </li>
+            <ol>
+              <li>Select all &lt;p&gt; elements that are the first child of their parent.</li>
+              <li>Select all &lt;p&gt; elements that are the first &lt;p&gt; element of their parent.</li>
+              <li>Select all &lt;p&gt; elements that are the last child of their parent.</li>
+              <li>Select all &lt;p&gt; elements that are the last &lt;p&gt; element of their parent.</li>
+              <li>Select all even &lt;tr&gt; elements.</li>
+              <li>Select all odd &lt;tr&gt; elements.</li>
+              <li>Select all &lt;li&gt; elements that are the first child of their parent, counting from the &lt;li&gt;
+                element.</li>
+              <li>Select all &lt;li&gt; elements that are the second &lt;li&gt; element of their parent.</li>
+              <li>Select all &lt;b&gt; elements that are the only child of their parent.</li>
+              <li>Select all &lt;h3&gt; elements that are the only child of its type, of their parent.</li>
+            </ol>
+
+          </ul>
+
+        </div>
+
+        <div class="col-xs-6">
+          <div id="e1-p1" class="well">
+            <div id="selectorResult" style="padding:5px;" class="noSel">
+              <div class="noSel">
+                <h1><span class="markup">&lt;h1&gt;</span>Welcome to My Homepage<span class="markup">&lt;/h1&gt;</span>
+                </h1>
+
+                <div class="noSel newsletter" style="background-color:#99D6FF;border:1px solid #0099FF;padding:10px;">
+                  <form>
+                    <h4>Subscribe to my newsletter:</h4>
+                    <div style="overflow:auto;">
+                      <div style="width:100px;float:left;">Name:</div>
+                      <div style="width:180px;float:left;"><input type="text"
+                          style="width: 150px; border-color: rgb(255, 102, 102); background-color: rgb(255, 255, 153);"
+                          class="markup" autofocus></div>
+                    </div>
+                    <div style="overflow:auto;">
+                      <div style="width:100px;float:left;">E-mail:</div>
+                      <div style="width:180px;float:left;"><input type="email" style="width:150px" class="markup"
+                          onchange="changeEmail(this)"></div>
+                    </div>
+                    <div class="noSel" style="margin-top:10px;">
+                      Female: <input name="rr" type="radio" id="rr1" checked="checked"
+                        style="outline:2px solid transparent">
+                      Male: <input name="rr" type="radio" id="rr2" style="outline:2px solid transparent">
+                      Other: <input name="rr" type="radio" id="rr3" disabled="disabled"
+                        style="outline:2px solid transparent">
+                    </div>
+                    <h4>Newscategories:</h4>
+                    <div style="overflow:auto;">
+                      <div style="width:60px;float:left;">Ducks:</div>
+                      <div style="width:20px;float:left;"><input id="cc1" type="checkbox" checked="checked"
+                          style="outline:2px solid transparent"></div>
+                    </div>
+                    <div style="overflow:auto;">
+                      <div style="width:60px;float:left;">Dogs:</div>
+                      <div style="width:20px;float:left;"><input id="cc2" type="checkbox"
+                          style="outline:2px solid transparent"></div>
+                    </div>
+                    <div style="overflow:auto;">
+                      <div style="width:60px;float:left;">Humans:</div>
+                      <div style="width:20px;float:left;"><input id="cc3" type="checkbox"
+                          style="outline:2px solid transparent"></div>
+                    </div>
+                    <div class="noSel" style="clear:both;"></div>
+                    <p class="noSel">Your lucky number (between 1 and 10): <input type="number" min="1" max="10"
+                        value="7" onchange="changeLuckyNumber(this)"></p>
+                  </form>
+                </div>
+
+                <br>
+
+                <div id="helpIntro">
+                  <span class="markup">&lt;div class="intro"&gt;</span>
+                  <div class="intro">
+                    <p style="margin-top:4px;"><span class="markup">&lt;p&gt;</span>My name is Donald <span
+                        id="Lastname"><span class="markup">&lt;span id="Lastname"&gt;</span>Duck.<span
+                          class="markup">&lt;/span&gt;</span></span><span class="markup">&lt;/p&gt;</span></p>
+                    <p id="my-Address"><span class="markup">&lt;p id="my-Address"&gt;</span>I live in Duckburg<span
+                        class="markup">&lt;/p&gt;</span></p>
+                    <p style="margin-bottom:4px;"><span class="markup">&lt;p&gt;</span>I have many friends:<span
+                        class="markup">&lt;/p&gt;</span></p>
+                  </div>
+                  <span class="markup">&lt;/div&gt;</span>
+                </div>
+
+                <br>
+                <div class="helpUl">
+                  <span class="markup">&lt;ul id="Listfriends&gt;</span>
+                  <ul id="Listfriends" style="margin-top:0px;margin-bottom:0px;">
+
+                    <li><span class="markup">&lt;li&gt;</span>Goofy<span class="markup">&lt;/li&gt;</span></li>
+                    <li><span class="markup">&lt;li&gt;</span>Mickey<span class="markup">&lt;/li&gt;</span></li>
+                    <li><span class="markup">&lt;li&gt;</span>Daisy<span class="markup">&lt;/li&gt;</span></li>
+                    <li><span class="markup">&lt;li&gt;</span>Pluto<span class="markup">&lt;/li&gt;</span></li>
+                  </ul>
+                  <span class="markup">&lt;/ul&gt;</span>
+                </div>
+
+                <ul style="display:none;"></ul>
+                <p class="myquote"><span class="markup">&lt;p class="myquote"&gt;</span>All my friends are great!<span
+                    class="markup">&lt;br&gt;</span><br>But I really like Daisy!!<span class="markup">&lt;/p&gt;</span>
+                </p>
+
+                <p lang="it" title="Hello beautiful"><span class="markup">&lt;p lang="it" title="Hello
+                    beautiful"&gt;</span>Ciao bella<span class="markup">&lt;/p&gt;</span></p>
+
+
+                <h3><span class="markup">&lt;h3&gt;</span>We are all animals!<span class="markup">&lt;/h3&gt;</span>
+                </h3>
+
+                <p><span class="markup">&lt;p&gt;</span><span><b><span class="markup">&lt;b&gt;</span>My latest
+                      discoveries have led me to believe that we are all animals:<span
+                        class="markup">&lt;/b&gt;</span></b></span><span class="markup">&lt;/p&gt;</span></p>
+
+                <div class="helpTable" style="width:220px;">
+                  <span class="markup">&lt;table&gt;</span>
+                  <ul style="display:none;"></ul>
+
+                  <table cellpadding="2" cellspacing="2">
+                    <tbody>
+                      <tr style="background-color: rgb(241, 241, 241);">
+                        <th>Name</th>
+                        <th>Type of Animal</th>
+                      </tr>
+                      <tr style="background-color: rgb(241, 241, 241);">
+                        <td>Mickey</td>
+                        <td>Mouse</td>
+                      </tr>
+                      <tr style="background-color: rgb(241, 241, 241);">
+                        <td>Goofey</td>
+                        <td>Dog</td>
+                      </tr>
+                      <tr style="background-color: rgb(241, 241, 241);">
+                        <td>Daisy</td>
+                        <td>Duck</td>
+                      </tr>
+                      <tr style="background-color: rgb(241, 241, 241);">
+                        <td>Pluto</td>
+                        <td>Dog</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <span class="markup">&lt;/table&gt;</span>
+                </div>
+
+                
+
+
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/js/vendor/jquery-1.12.0.min.js"></script>
+  <script src="/assets/js/vendor/bootstrap.min.js"></script>
+  <script src="/assets/js/vendor/highlight.pack.js"></script>
+  <script src="/assets/js/scripts.js"></script>
+</body>
+
+</html>
