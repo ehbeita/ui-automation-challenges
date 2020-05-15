@@ -1,12 +1,12 @@
 
-### Run this locally
+### Run this on your command line
 
 After cloning this project, run these commands:
 
 ```bash
-## install the node_modules
-npm install
-
-## start the local webserver
-npm start
+docker build --tag ui-automation-demo .
+docker run --publish 8080:8080 --detach --name demo ui-automation-demo
 ```
+
+You don't know how to setup docker on your environment? follow the quick start guide:
+https://docs.docker.com/get-started/
