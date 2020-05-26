@@ -1,6 +1,6 @@
 ## Intro video:
 Click the image below to whatch my intro video
-[![Watch the video](video.png)](https://www.youtube.com/watch?v=Ssq-YqXP8-8)
+[![Watch the video](video.png)](https://youtu.be/Z5mt_LNAGc8)
 
 
 ## Project setup:
