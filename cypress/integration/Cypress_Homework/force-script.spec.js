@@ -1,6 +1,6 @@
 describe('Force state', () =>{
     beforeEach(() => {
-        cy.visit('https://example.cypress.io/commands/actions')
+        cy.visit('../app/challenges/actions.html')
     })
 
     it('Force: a popover is displayed after forcing click on button', () => {

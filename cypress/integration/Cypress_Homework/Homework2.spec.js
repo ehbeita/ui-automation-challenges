@@ -2,8 +2,8 @@
 describe('Exercise 1 - Type and send keys', () => {
     context('Email field state', () =>{
         beforeEach(() => {
-            //cy.visit('./app/challenges/actions.html')
-            cy.visit('https://example.cypress.io/commands/actions')
+            cy.visit('../app/challenges/actions.html')
+            //cy.visit('https://example.cypress.io/commands/actions')
         })
 
         it('Email is typed into DOM element', () => {
@@ -24,7 +24,7 @@ describe('Exercise 1 - Type and send keys', () => {
 
     context('Disabled text area state', () =>{
         beforeEach(() => {
-            cy.visit('https://example.cypress.io/commands/actions')
+            cy.visit('../app/challenges/actions.html')
         })
 
         it('Disabled text area contains "Text typed inside disabled textarea"', () => {
@@ -38,7 +38,7 @@ describe('Exercise 1 - Type and send keys', () => {
 describe('Exercise 2 - Focus and blur', () => {
     context('Focus password field state', () =>{
         beforeEach(() => {
-            cy.visit('https://example.cypress.io/commands/actions')
+            cy.visit('../app/challenges/actions.html')
         })
 
         it('Focus: Password input border and label has orange color', () => {
@@ -50,7 +50,7 @@ describe('Exercise 2 - Focus and blur', () => {
 
     context('Blur full name field state', () =>{
         beforeEach(() => {
-            cy.visit('https://example.cypress.io/commands/actions')
+            cy.visit('../app/challenges/actions.html')
         })
 
         it('Blur: Full Name input border and label has red color', () => {
@@ -65,7 +65,7 @@ describe('Exercise 2 - Focus and blur', () => {
 describe('Exercise 3 - Submitting a form', () => {
     context('Submit form state', () =>{
         beforeEach(() => {
-            cy.visit('https://example.cypress.io/commands/actions')
+            cy.visit('../app/challenges/actions.html')
         })
 
         it('Submit: After submitting form, "Your form has been submitted!" is displayed', () => {
@@ -84,7 +84,7 @@ describe('Exercise 3 - Submitting a form', () => {
 describe('Exercise 4 - Popover and canvas - Multiple clicks and force', () => {
     context('Popover state', () =>{
         beforeEach(() => {
-            cy.visit('https://example.cypress.io/commands/actions')
+            cy.visit('../app/challenges/actions.html')
         })
 
         it('Popover: popover element shows up after clicking on "Click to toggle popover" red button', () => {
@@ -98,14 +98,13 @@ describe('Exercise 4 - Popover and canvas - Multiple clicks and force', () => {
 
     context('Canvas state', () =>{
         beforeEach(() => {
-            cy.visit('https://example.cypress.io/commands/actions')
+            cy.visit('../app/challenges/actions.html')
         })
 
         it('Canvas: red dots are drawed after clicking on the respective coordinates', () => {
             cy.eyesOpen({
                 appName: "Red Dots Drawing",
-                testName: "Red Dots drawed on the respective coordinates when clicking",
-                browser: { width: 800, height: 600 }
+                testName: "Red Dots drawed on the respective coordinates when clicking"
             });
             
             cy.get('#action-canvas')
@@ -142,7 +141,7 @@ describe('Exercise 4 - Popover and canvas - Multiple clicks and force', () => {
 
     context('Multiple clicks state', () =>{
         beforeEach(() => {
-            cy.visit('https://example.cypress.io/commands/actions')
+            cy.visit('../app/challenges/actions.html')
         })
 
         it('Multiple clicks: a popover is displayed for every iterated element when clicked', () => {
@@ -158,11 +157,11 @@ describe('Exercise 4 - Popover and canvas - Multiple clicks and force', () => {
 
     context('Force state', () =>{
         //beforeEach(() => {
-        //    cy.visit('https://example.cypress.io/commands/actions')
+        //    cy.visit('../app/challenges/actions.html')
         //})
 
         it('Force: a popover is displayed after forcing click on button via script', () => {
-            cy.exec('npm run force-script')
+            cy.exec('npm run force-script', { timeout: 90000 })//it can fail due to taking too much time
             .its('code')
             .should('eq', 0)
             //cy.get('.action-opacity>.btn')
@@ -176,7 +175,7 @@ describe('Exercise 4 - Popover and canvas - Multiple clicks and force', () => {
 describe('Exercise 5 - Double click element', () => {
     context('Double click element state', () =>{
         beforeEach(() => {
-            cy.visit('https://example.cypress.io/commands/actions')
+            cy.visit('../app/challenges/actions.html')
         })
 
         it('Double click: input element is displayed after double clicking on "Double click to edit" text element', () => {
@@ -192,7 +191,7 @@ describe('Exercise 5 - Double click element', () => {
 describe('Exercise 6 - Right click element', () => {
     context('Right click element state', () =>{
         beforeEach(() => {
-            cy.visit('https://example.cypress.io/commands/actions')
+            cy.visit('../app/challenges/actions.html')
         })
 
         it('Right click: input element is displayed after right clicking on "Right click to edit" text element', () => {
