@@ -1,7 +1,7 @@
 {
   "name": "ui-automation-challenges",
   "version": "0.0.0-development",
-  "description": "",
+  "description": "Click the image below to whatch my intro video\r [![Watch the video](video.png)](https://youtu.be/54quXG4P3YU)",
   "main": "index.js",
   "files": [
     "app"
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cypress-io/cypress-example-kitchensink.git"
+    "url": "git+https://github.com/cypress-io/cypress-example-kitchensink.git"
   },
   "author": "Brian Mann",
   "license": "MIT",
@@ -26,5 +26,8 @@
   },
   "engines": {
     "node": ">=4"
+  },
+  "devDependencies": {
+    "cypress": "8.6.0"
   }
 }
