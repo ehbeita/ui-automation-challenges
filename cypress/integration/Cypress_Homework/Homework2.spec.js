@@ -102,17 +102,41 @@ describe('Exercise 4 - Popover and canvas - Multiple clicks and force', () => {
         })
 
         it('Canvas: red dots are drawed after clicking on the respective coordinates', () => {
-            cy.percySnapshot('Pre-drawing');
+            cy.eyesOpen({
+                appName: "Red Dots Drawing",
+                testName: "Red Dots drawed on the respective coordinates when clicking",
+                browser: { width: 800, height: 600 }
+            });
             
             cy.get('#action-canvas')
             .click(80,75)
+            cy.eyesCheckWindow("First red dot drawed");
+
+            cy.get('#action-canvas')
             .click(170,75)
+            cy.eyesCheckWindow("Second red dot drawed");
+
+            cy.get('#action-canvas')
             .click(80,165)
+            cy.eyesCheckWindow("Third red dot drawed");
+
+            cy.get('#action-canvas')
             .click(100,185)
+            cy.eyesCheckWindow("Fourth red dot drawed");
+
+            cy.get('#action-canvas')
             .click(125,190)
+            cy.eyesCheckWindow("Fifth red dot drawed");
+
+            cy.get('#action-canvas')
             .click(150,185)
+            cy.eyesCheckWindow("Sixth red dot drawed");
+
+            cy.get('#action-canvas')
             .click(170,165)
-            cy.percySnapshot('Post-drawing');
+            cy.eyesCheckWindow("Seventh red dot drawed");
+
+            cy.eyesClose();
         })
     })
 

@@ -29,6 +29,7 @@
     "node": ">=4"
   },
   "devDependencies": {
+    "@applitools/eyes.cypress": "3.4.11",
     "@percy/cli": "1.0.0-beta.69",
     "@percy/cypress": "3.1.1",
     "cypress": "8.6.0"
