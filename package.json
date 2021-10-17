@@ -10,7 +10,7 @@
     "start": "serve --listen 8080",
     "start:ci": "serve --no-clipboard --listen 8080",
     "dev": "npm start",
-    "force-script": "force-script.spec.js"
+    "force-script": "cypress run --spec ./cypress/integration/Cypress_Homework/force-script.spec.js"
   },
   "repository": {
     "type": "git",

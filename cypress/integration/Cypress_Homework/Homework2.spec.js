@@ -102,6 +102,8 @@ describe('Exercise 4 - Popover and canvas - Multiple clicks and force', () => {
         })
 
         it('Canvas: red dots are drawed after clicking on the respective coordinates', () => {
+            cy.percySnapshot('Pre-drawing');
+            
             cy.get('#action-canvas')
             .click(80,75)
             .click(170,75)
@@ -110,7 +112,7 @@ describe('Exercise 4 - Popover and canvas - Multiple clicks and force', () => {
             .click(125,190)
             .click(150,185)
             .click(170,165)
-            cy.percySnapshot('Click final');
+            cy.percySnapshot('Post-drawing');
         })
     })
 
@@ -131,16 +133,18 @@ describe('Exercise 4 - Popover and canvas - Multiple clicks and force', () => {
     })
 
     context('Force state', () =>{
-        beforeEach(() => {
-            cy.visit('https://example.cypress.io/commands/actions')
-        })
+        //beforeEach(() => {
+        //    cy.visit('https://example.cypress.io/commands/actions')
+        //})
 
         it('Force: a popover is displayed after forcing click on button via script', () => {
             cy.exec('npm run force-script')
+            .its('code')
+            .should('eq', 0)
             //cy.get('.action-opacity>.btn')
             //.click({ force: true })
-            cy.get('.popover.fade.left.in')
-            .should('be.visible')
+            //cy.get('.popover.fade.left.in')
+            //.should('be.visible')
         })
     })
 })
