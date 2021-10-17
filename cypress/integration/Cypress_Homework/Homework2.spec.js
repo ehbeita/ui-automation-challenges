@@ -81,6 +81,70 @@ describe('Exercise 3 - Submitting a form', () => {
     })
 })
 
+describe('Exercise 4 - Popover and canvas - Multiple clicks and force', () => {
+    context('Popover state', () =>{
+        beforeEach(() => {
+            cy.visit('https://example.cypress.io/commands/actions')
+        })
+
+        it('Popover: popover element shows up after clicking on "Click to toggle popover" red button', () => {
+            cy.get('.btn.btn-lg.btn-danger.action-btn')
+            .click()
+            
+            cy.get('.popover.fade.top.in')
+            .should('be.visible')
+        })
+    })
+
+    context('Canvas state', () =>{
+        beforeEach(() => {
+            cy.visit('https://example.cypress.io/commands/actions')
+        })
+
+        it('Canvas: red dots are drawed after clicking on the respective coordinates', () => {
+            cy.get('#action-canvas')
+            .click(80,75)
+            .click(170,75)
+            .click(80,165)
+            .click(100,185)
+            .click(125,190)
+            .click(150,185)
+            .click(170,165)
+            cy.percySnapshot('Click final');
+        })
+    })
+
+    context('Multiple clicks state', () =>{
+        beforeEach(() => {
+            cy.visit('https://example.cypress.io/commands/actions')
+        })
+
+        it('Multiple clicks: a popover is displayed for every iterated element when clicked', () => {
+            cy.get('.action-labels>.label').each(($el, index, $list) => {
+                cy.wrap($el)
+                .click()
+                .next()
+                .should('have.class', "popover fade bottom in")
+                .and('be.visible')
+            })
+        })
+    })
+
+    context('Force state', () =>{
+        beforeEach(() => {
+            cy.visit('https://example.cypress.io/commands/actions')
+        })
+
+        it('Force: a popover is displayed after forcing click on button via script', () => {
+            cy.exec('npm run force-script')
+            //cy.get('.action-opacity>.btn')
+            //.click({ force: true })
+            cy.get('.popover.fade.left.in')
+            .should('be.visible')
+        })
+    })
+})
+
 describe('Exercise 5 - Double click element', () => {
     context('Double click element state', () =>{
         beforeEach(() => {
@@ -90,7 +154,8 @@ describe('Exercise 5 - Double click element', () => {
         it('Double click: input element is displayed after double clicking on "Double click to edit" text element', () => {
             cy.get('.action-div')
             .dblclick()
-            .next()
+            
+            cy.get('.action-input-hidden.form-control')
             .should('be.visible')
         })
     })
@@ -105,7 +170,8 @@ describe('Exercise 6 - Right click element', () => {
         it('Right click: input element is displayed after right clicking on "Right click to edit" text element', () => {
             cy.get('.rightclick-action-div')
             .rightclick()
-            .next()
+
+            cy.get('.rightclick-action-input-hidden.form-control')
             .should('be.visible')
         })
     })
